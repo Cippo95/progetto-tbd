@@ -6,8 +6,6 @@
         <p>Compila i dati dell'autore.</p>
         <form action="/authors" method="post">
             @csrf
-            <label for="id">ID_Autore:</label>
-            <input type="text" id="id" name="id"><br>
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name"><br>
             <label for="name">Cognome:</label>

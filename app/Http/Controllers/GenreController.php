@@ -39,10 +39,9 @@ class GenreController extends Controller
     public function store(StoreGenreRequest $request)
     {
         $data=request()->validate([
-            'id'=>'required',
             'name'=>'required'
         ]);
-        DB::insert('insert into genres (id, name) values (?, ?)', [$request->id, $request->name]);
+        DB::insert('insert into genres (name) values (?)', [$request->name]);
         return redirect()->action([GenreController::class, 'index']);
     }
 

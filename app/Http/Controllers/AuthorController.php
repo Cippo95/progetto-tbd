@@ -39,11 +39,10 @@ class AuthorController extends Controller
     public function store(StoreAuthorRequest $request)
     {
         $data=request()->validate([
-            'id'=>'required',
             'name'=>'required',
             'surname'=>'required'
         ]);
-        DB::insert('insert into authors (id, name, surname) values (?, ?, ?)', [$request->id, $request->name, $request->surname]);
+        DB::insert('insert into authors (name, surname) values (?, ?)', [$request->name, $request->surname]);
         return redirect()->action([AuthorController::class, 'index']);
     }
 
@@ -78,7 +77,7 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        $author = DB::update('update authors set id = ?, name = ?, surname = ? where id = ?',[$request->id, $request->name, $request->surname, $author->id]);
+        $author = DB::update('update authors set name = ?, surname = ? where id = ?',[$request->name, $request->surname, $author->id]);
         return redirect()->action([AuthorController::class, 'index']);
     }
 

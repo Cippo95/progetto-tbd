@@ -16,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = DB::select('select * from books');
+        $books = DB::select('select books.id, title, authors.name as authors_name, authors.surname as authors_surname, genres.name as genres_name from books inner join authors on authors.id = author_id inner join genres on genres.id = genre_id');
         return view('books.index', compact('books'));
     }
 
@@ -27,7 +27,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        $authors = DB::select('select * from authors');
+        $genres = DB::select('select * from genres');
+        return view('books.create', compact('authors','genres'));
     }
 
     /**
@@ -39,12 +41,11 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
         $data=request()->validate([
-            'id'=>'required',
             'title'=>'required',
             'author_id'=>'required',
             'genre_id'=>'required'
         ]);
-        DB::insert('insert into books (id, title, author_id, genre_id) values (?, ?, ?, ?)', [$request->id, $request->title, $request->author_id, $request->genre_id]);
+        DB::insert('insert into books (title, author_id, genre_id) values (?, ?, ?)', [$request->title, $request->author_id, $request->genre_id]);
         return redirect()->action([BookController::class, 'index']);
     }
 

@@ -13,7 +13,8 @@
             <tr>
                 <th>ID_Libro</th>
                 <th>Titolo</th>
-                <th>Autore</th>
+                <th>Autore.Nome</th>
+                <th>Autore.Cognome</th>
                 <th>Genere</th>
                 <th>Elimina</th>
             </tr>
@@ -21,8 +22,9 @@
                 <tr>
                     <td>{{ $book->id }}</td>
                     <td>{{ $book->title }}</td>
-                    <td>{{ $book->author_id }}</td>
-                    <td>{{ $book->genre_id }}</td>
+                    <td>{{ $book->authors_name }}</td>
+                    <td>{{ $book->authors_surname }}</td>
+                    <td>{{ $book->genres_name }}</td>
                     <td>
                         <form action="/books/{{ $book->id }}" method="post">
                             @csrf

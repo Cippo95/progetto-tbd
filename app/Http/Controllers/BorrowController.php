@@ -16,7 +16,7 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        $borrows = DB::select('select * from borrows');
+        $borrows = DB::select('select borrows.id, students.id as students_id, students.name as students_name, students.surname as students_surname, books.id as books_id, title from borrows inner join students on students.id = student_id inner join books on books.id = book_id');
         return view('borrows.index', compact('borrows'));
     }
 
@@ -27,7 +27,8 @@ class BorrowController extends Controller
      */
     public function create()
     {
-        return view('borrows.create');
+        $books = DB::select('select * from books');
+        return view('borrows.create', compact('books'));
     }
 
     /**
@@ -88,7 +89,7 @@ class BorrowController extends Controller
      */
     public function destroy(Borrow $borrow)
     {
-        $borrow = DB::delete('delete from borrow where id = ?',[$borrow->id]);
+        $borrow = DB::delete('delete from borrows where id = ?',[$borrow->id]);
         return redirect()->action([BorrowController::class, 'index']);
     }
 }

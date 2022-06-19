@@ -6,26 +6,27 @@
                 border: 1px solid black;
             }
         </style>
-        <h1>Studenti</h1>
+        <h1>Prestiti degli studenti</h1>
         <a href="/">Home</a>
-        <p>Per inserire un nuovo studente <a href="/students/create">clicca qui</a>.</p>
-        <p>Per vedere i prestiti di uno studente clicca sulla sua matricola.</p>
+        <p>Per tornare agli studenti <a href="/students">clicca qui</a></p>
         <table>
             <tr>
+                <th>ID_Prestito</th>
                 <th>ID_Studente</th>
                 <th>Nome</th>
                 <th>Cognome</th>
-                <th>Aggiorna</th>
+                <th>Libro</th>
                 <th>Elimina</th>
             </tr>
-            @forelse($students as $student)
+            @forelse($studentBorrows as $studentBorrow)
                 <tr>
-                    <td><a href="/students/{{ $student->id }}/borrows">{{ $student->id }}</a></td>
-                    <td>{{ $student->name }}</td>
-                    <td>{{ $student->surname }}</td>
-                    <td><a href="/students/{{ $student->id }}/edit">Aggiorna</a></td>
+                    <td>{{ $studentBorrow->id }}</td>
+                    <td>{{ $studentBorrow->student_id }}</td>
+                    <td>{{ $studentBorrow->name }}</td>
+                    <td>{{ $studentBorrow->surname }}</td>
+                    <td>{{ $studentBorrow->title }}</td>
                     <td>
-                        <form action="/students/{{ $student->id }}" method="post">
+                        <form action="/borrows/{{ $studentBorrow->id }}" method="post">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Elimina">

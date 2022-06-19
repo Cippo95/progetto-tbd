@@ -13,14 +13,20 @@
             <tr>
                 <th>ID_Prestito</th>
                 <th>ID_Studente</th>
+                <th>Nome Studente</th>
+                <th>Cognome Studente</th>
                 <th>ID_Libro</th>
+                <th>Titolo Libro</th>
                 <th>Elimina</th>
             </tr>
             @forelse($borrows as $borrow)
                 <tr>
                     <td>{{ $borrow->id }}</td>
-                    <td>{{ $borrow->student_id }}</td>
-                    <td>{{ $borrow->book_id }}</td>
+                    <td>{{ $borrow->students_id }}</td>
+                    <td>{{ $borrow->students_name }}</td>
+                    <td>{{ $borrow->students_surname }}</td>
+                    <td>{{ $borrow->books_id }}</td>
+                    <td>{{ $borrow->title }}</td>
                     <td>
                         <form action="/borrows/{{ $borrow->id }}" method="post">
                             @csrf
