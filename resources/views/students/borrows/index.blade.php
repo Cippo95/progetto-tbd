@@ -43,7 +43,7 @@
                     <td>{{ $studentBorrow->surname }}</td>
                     <td>{{ $studentBorrow->title }}</td>
                     <td>
-                        <form action="/borrows/{{ $studentBorrow->id }}" method="post">
+                        <form action="/students/{{ $studentBorrow->student_id }}/borrows/{{ $studentBorrow->id }}" method="post">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Elimina">

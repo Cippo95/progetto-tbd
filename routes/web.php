@@ -31,3 +31,4 @@ Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
 Route::resource('genres', GenreController::class);
 Route::get('/students/{student}/borrows', [StudentBorrowController::class, 'index']);
+Route::delete('/students/{student}/borrows/{borrow}', [StudentBorrowController::class, 'destroy']);
