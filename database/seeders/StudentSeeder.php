@@ -17,13 +17,20 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        Student::factory()
-			->count(2)
-			->create();
-        // DB::table('students')->insert([
-        //     'id' => "121120",
-        //     'name' => "Filippo",
-        //     'surname' => "Landi"
-        // ]);
+        // Student::factory()
+		// 	->count(2)
+		// 	->create();
+        DB::table('students')->insert([
+            'name' => "Bruno",
+            'surname' => "Lori"
+        ]);
+        DB::table('students')->insert([
+            'name' => "Cesio",
+            'surname' => "Rossi"
+        ]);
+        DB::table('students')->insert([
+            'name' => "Igino",
+            'surname' => "Genovesi"
+        ]);
     }
 }
