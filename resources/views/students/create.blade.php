@@ -6,8 +6,6 @@
     <p>Compila i dati dello studente.</p>
     <form action="/students" method="post">
         @csrf
-        <label for="id">Matricola:</label>
-        <input type="text" id="id" name="id"><br>
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name"><br>
         <label for="name">Cognome:</label>

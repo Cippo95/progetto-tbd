@@ -26,7 +26,7 @@
         <h1>Studenti</h1>
         <a href="/">Home</a>
         <p>Per inserire un nuovo studente <a href="/students/create">clicca qui</a>.</p>
-        <p>Per vedere i prestiti di uno studente clicca sulla sua matricola.</p>
+        <p>Per vedere i prestiti di uno studente clicca sul suo ID.</p>
         <table>
             <tr>
                 <th>ID_Studente</th>

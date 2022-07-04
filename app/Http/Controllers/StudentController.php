@@ -39,10 +39,10 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request)
     {
         $data=request()->validate([
-            'id'=>'required',
-            'name'=>'required'
+            'name'=>'required',
+            'surname'=>'required'
         ]);
-        DB::insert('insert into students (id, name, surname) values (?, ?, ?)', [$request->id, $request->name, $request->surname]);
+        DB::insert('insert into students (name, surname) values (?, ?)', [$request->name, $request->surname]);
         return redirect()->action([StudentController::class, 'index']);
     }
 

@@ -27,12 +27,10 @@
         <a href="/students">Clicca qui per tornare agli studenti.</a>
         <table>
             <tr>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Cognome</th>
             </tr>
             <tr>
-                <td>{{ $student->id }}</td>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->surname }}</td>
             </tr>
